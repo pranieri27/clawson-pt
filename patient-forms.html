@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Forms - Clawson Physical Therapy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-content">
+      <a href="index.html" class="site-logo"><h1>Clawson Physical Therapy</h1></a>
+      <button class="mobile-menu-toggle" aria-expanded="false"><span class="hamburger"></span></button>
+      <nav class="main-nav"><ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="insurance.html">Insurance & Billing</a></li>
+          <li><a href="patient-forms.html">Patient Forms</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul></nav>
+    </div>
+  </header>
+  <main id="main-content" class="main-content">
+    <h1 class="page-title">New Patient Forms</h1>
+    <div class="info-box">
+      <h3>Request Your Appointment</h3>
+      <p>Fill out the form below and we'll contact you within 24 hours to schedule your appointment and send you our complete intake forms.</p>
+      <p><strong>Prefer to download?</strong> <a href="pdfs/patient-intake-forms.pdf">Download PDF forms here</a></p>
+    </div>
+    <div style="background: #EFF6FF; border-left: 4px solid #0B8E8E; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+      <h3 style="color: #0B8E8E;">🔒 Your Privacy is Protected</h3>
+      <p style="margin: 0;">All information is secure and HIPAA compliant.</p>
+    </div>
+    <div style="max-width: 800px; margin: 2rem auto; background: white; border: 2px solid #E5E7EB; border-radius: 8px; padding: 2rem;">
+      <h2 style="color: #0B8E8E; margin-bottom: 1.5rem;">Contact Form</h2>
+      <form name="patient-contact" method="POST" action="thank-you.html">
+        <input type="hidden" name="form-name" value="patient-contact">
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Name *</label>
+          <input type="text" name="name" required style="width: 100%; padding: 0.75rem; font-size: 1.125rem; border: 2px solid #D1D5DB; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Phone *</label>
+          <input type="tel" name="phone" required style="width: 100%; padding: 0.75rem; font-size: 1.125rem; border: 2px solid #D1D5DB; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Email *</label>
+          <input type="email" name="email" required style="width: 100%; padding: 0.75rem; font-size: 1.125rem; border: 2px solid #D1D5DB; border-radius: 8px;">
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Reason for Visit *</label>
+          <textarea name="reason" required style="width: 100%; padding: 0.75rem; font-size: 1.125rem; border: 2px solid #D1D5DB; border-radius: 8px; min-height: 100px;"></textarea>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-weight: 600; margin-bottom: 0.5rem;">Insurance Provider</label>
+          <input type="text" name="insurance" style="width: 100%; padding: 0.75rem; font-size: 1.125rem; border: 2px solid #D1D5DB; border-radius: 8px;">
+        </div>
+        <button type="submit" style="background: #E85D4F; color: white; padding: 1rem 2rem; font-size: 1.125rem; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; width: 100%;">Submit Request</button>
+      </form>
+      <p style="margin-top: 1.5rem; text-align: center; color: #6B7280;">Our staff will contact you within 24 hours.</p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section"><h3>Sacramento</h3><p><a href="tel:+19164884000">(916) 488-4000</a></p></div>
+      <div class="footer-section"><h3>Elk Grove</h3><p><a href="tel:+19166843000">(916) 684-3000</a></p></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 Clawson Physical Therapy.</p></div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
