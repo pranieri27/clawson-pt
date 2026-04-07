@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Forms | Clawson Physical Therapy</title>
+    <meta name="description" content="Complete your patient intake forms online for Clawson Physical Therapy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f7a; --primary-dark: #134459; --primary-light: #2d8fb3;
+            --secondary: #e8a838; --secondary-light: #f5c566;
+            --cream: #faf8f5; --cream-dark: #f0ebe3;
+            --text-dark: #1a1a1a; --text-medium: #4a4a4a; --text-light: #6b6b6b;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            --shadow-sm: 0 2px 8px rgba(26,95,122,0.08);
+            --shadow-md: 0 8px 30px rgba(26,95,122,0.12);
+            --shadow-lg: 0 20px 60px rgba(26,95,122,0.15);
+            --radius-sm: 8px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 40px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; color: var(--text-dark); background: var(--cream); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Nav */
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(250,248,245,0.95); backdrop-filter: blur(20px); box-shadow: var(--shadow-sm); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; max-width: 1280px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { width: 48px; height: 48px; background: var(--gradient-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 18px; }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: var(--primary-dark); }
+        .logo-tagline { font-size: 11px; color: var(--text-light); letter-spacing: 0.5px; text-transform: uppercase; }
+        .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-medium); font-weight: 500; font-size: 15px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .nav-cta { background: var(--gradient-primary); color: var(--white) !important; padding: 12px 28px; border-radius: var(--radius-xl); }
+        .mobile-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; padding: 8px; }
+        .mobile-toggle span { width: 28px; height: 2px; background: var(--primary); }
+
+        /* Header */
+        .page-header { padding: 140px 0 60px; background: var(--white); text-align: center; }
+        .page-header h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 16px; }
+        .page-header p { font-size: 18px; color: var(--text-medium); max-width: 600px; margin: 0 auto; }
+
+        /* Forms Grid */
+        .forms-section { padding: 60px 0 100px; }
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+        .form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-card-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 36px;
+        }
+
+        .form-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .form-card p {
+            color: var(--text-medium);
+            font-size: 15px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .form-card .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        .form-card .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(26,95,122,0.4);
+        }
+
+        .form-card .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .form-card .btn-secondary:hover {
+            background: var(--cream);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            max-width: 700px;
+            margin: 50px auto 0;
+            text-align: center;
+            border: 2px solid var(--cream-dark);
+        }
+        .info-box h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+        .info-box p {
+            color: var(--text-medium);
+            font-size: 15px;
+        }
+
+        /* Footer */
+        .footer { background: var(--text-dark); color: var(--white); padding: 40px 0; }
+        .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer .logo-text { color: var(--white); }
+        .footer .logo-tagline { color: rgba(255,255,255,0.5); }
+        .footer-contact { display: flex; gap: 32px; }
+        .footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 15px; }
+        .footer-contact a:hover { color: var(--secondary); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+            .forms-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-contact { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">CP</div>
+                <div><div class="logo-text">Clawson PT</div><div class="logo-tagline">Physical Therapy</div></div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#locations">Locations</a></li>
+                <li><a href="forms.html" class="active">Forms</a></li>
+                <li><a href="index.html#testimonials">Reviews</a></li>
+                <li><a href="tel:9164884000" class="nav-cta">Call Now</a></li>
+            </ul>
+            <div class="mobile-toggle" onclick="document.body.classList.toggle('menu-open')">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Patient Forms</h1>
+            <p>Please complete the appropriate intake form before your first appointment. Select your insurance type below.</p>
+        </div>
+    </header>
+
+    <!-- Forms -->
+    <section class="forms-section">
+        <div class="container">
+            <div class="forms-grid">
+
+                <!-- Standard Insurance -->
+                <div class="form-card">
+                    <div class="form-card-icon">📋</div>
+                    <h3>Standard Insurance</h3>
+                    <p>PPO, HMO, Blue Cross, Aetna, United, and all other commercial insurance plans.</p>
+                    <a href="https://intakeq.com/new/hgqvpr" target="_blank" class="btn">Fill Out Form →</a>
+                </div>
+
+                <!-- Medicare -->
+                <div class="form-card">
+                    <div class="form-card-icon">🏥</div>
+                    <h3>Medicare</h3>
+                    <p>Medicare patients — includes Advance Beneficiary Notice (ABN) and intake forms.</p>
+                    <a href="https://intakeq.com/new/dtn6hg" target="_blank" class="btn">Fill Out Form →</a>
+                </div>
+
+                <!-- Workers Comp -->
+                <div class="form-card">
+                    <div class="form-card-icon">🦺</div>
+                    <h3>Workers' Compensation</h3>
+                    <p>For work-related injuries. Includes employer information and injury details.</p>
+                    <a href="https://intakeq.com/new/umkciz" target="_blank" class="btn">Fill Out Form →</a>
+                </div>
+
+                <!-- COVID-19 -->
+                <div class="form-card">
+                    <div class="form-card-icon">📄</div>
+                    <h3>COVID-19 Consent</h3>
+                    <p>Download, print, and bring this form to your first appointment.</p>
+                    <a href="Covid_19_Consent.docx" download class="btn btn-secondary">Download Form ↓</a>
+                </div>
+
+            </div>
+
+            <div class="info-box">
+                <h4>Questions?</h4>
+                <p>If you're unsure which form to complete or need assistance, please call us at <strong>(916) 488-4000</strong> and we'll be happy to help.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">CP</div>
+                    <div><div class="logo-text">Clawson PT</div><div class="logo-tagline">Physical Therapy</div></div>
+                </a>
+                <div class="footer-contact">
+                    <a href="tel:9164884000">📞 (916) 488-4000</a>
+                    <a href="mailto:paulranierihl@gmail.com">✉️ Email Us</a>
+                </div>
+            </div>        </div>
+    </footer>
+</body>
+</html>
